@@ -1,10 +1,5 @@
-import Home1 from "./components/home/home";
-import About from "./components/about/about";
+import MainContent from "../components/MainContent";
+
 export default function Home() {
-  return (
-    <>
-    <Home1 />
-    <About />
-    </>
-  );
+  return <MainContent />;
 }

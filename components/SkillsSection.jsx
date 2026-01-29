@@ -1,0 +1,497 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const SkillsSection = () => {
+  return (
+    <section className="py-20 bg-slate-800">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-6xl mx-auto"
+        >
+          {/* Header Section */}
+          <div className="space-y-2 arabic-rtl mb-12">
+            <div className="flex items-center gap-1.5 text-xl font-medium text-neutral-800 dark:text-neutral-300 font-semibold arabic-semibold">
+              <i>
+                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                  <path d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z"></path>
+                </svg>
+              </i>
+              <h2 className="capitalize text-3xl md:text-4xl font-bold">Skills</h2>
+            </div>
+            <div className="flex flex-col justify-between gap-2 text-neutral-600 dark:text-neutral-400 md:flex-row lg:items-center">
+              <p className="mb-5 text-lg">My professional skills and technologies I work with.</p>
+            </div>
+          </div>
+          
+          {/* Skills Grid */}
+          <div className="grid w-full grid-cols-6 gap-x-[1em] gap-y-[2.7em] py-2 md:grid-cols-10 lg:grid-cols-11 arabic-rtl">
+            {/* HTML */}
+            <button type="button" aria-label="HTML" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-orange-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">HTML</span>
+            </button>
+
+            {/* CSS */}
+            <button type="button" aria-label="CSS" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-blue-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">CSS</span>
+            </button>
+
+            {/* Bootstrap */}
+            <button type="button" aria-label="Bootstrap" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-violet-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.375 7.125V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23zm0 3.762h1.898c1.184 0 1.81-.48 1.81-1.377 0-.885-.65-1.348-1.886-1.348H6.375z"></path>
+                    <path d="M4.002 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4zm1.06 12V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Bootstrap</span>
+            </button>
+
+            {/* GitHub */}
+            <button type="button" aria-label="GitHub" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-gray-800"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">GitHub</span>
+            </button>
+
+            {/* Firebase */}
+            <button type="button" aria-label="Firebase" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-yellow-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.89 15.672L6.255.461A.542.542 0 017.27.288l2.543 4.771zm16.794 3.692l-2.25-14a.54.54 0 00-.919-.295L3.316 19.365l7.856 4.427a1.621 1.621 0 001.588 0zM14.3 7.147l-1.82-3.482a.542.542 0 00-.96 0L3.53 17.984z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Firebase</span>
+            </button>
+
+            {/* Supabase */}
+            <button type="button" aria-label="Supabase" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-green-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.9 1.036c-.015-.986-1.26-1.41-1.874-.637L.764 12.05C-.33 13.427.65 15.455 2.409 15.455h9.579l.113 7.51c.014.985 1.259 1.408 1.873.636l9.262-11.653c1.093-1.375.113-3.403-1.645-3.403h-9.642z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Supabase</span>
+            </button>
+
+            {/* Express.js */}
+            <button type="button" aria-label="Express.js" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-gray-700"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 18.588a1.529 1.529 0 01-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 01-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 011.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 011.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 000 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 002.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 01-2.589 3.957 6.272 6.272 0 01-7.306-.933 6.575 6.575 0 01-1.64-3.858c0-.235-.08-.455-.134-.666A88.33 88.33 0 010 11.577zm1.127-.286h9.654c-.06-3.076-2.001-5.258-4.59-5.278-2.882-.04-4.944 2.094-5.071 5.264z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Express.js</span>
+            </button>
+
+            {/* Dart */}
+            <button type="button" aria-label="Dart" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-blue-400"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V9.789L9.789 24H0V14.211L4.105 4.105z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Dart</span>
+            </button>
+
+            {/* Flutter */}
+            <button type="button" aria-label="Flutter" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-sky-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.37zm.159 11.871L11.91 14.456l4.414 4.414 2.563-2.563z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Flutter</span>
+            </button>
+
+            {/* C */}
+            <button type="button" aria-label="C" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-blue-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5921 9.1962s-.354-3.298-3.627-3.39c-3.2741-.09-4.9552 2.474-4.9552 6.14 0 3.6651 1.858 6.5972 5.0451 6.5972 3.184 0 3.5380-3.2851 3.5380-3.2851l-2.0531.069s-.35 1.7471-1.4831 1.7471c-.9821 0-1.8061-1.3561-1.8061-3.2851 0-1.929.8241-3.2851 1.8061-3.2851 1.133 0 1.4831 1.7471 1.4831 1.7471l2.0531.069z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">C</span>
+            </button>
+
+            {/* C++ */}
+            <button type="button" aria-label="C++" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-blue-700"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.394 6c-.167-.29-.398-.543-.652-.69L12.926.22c-.509-.294-1.34-.294-1.848 0L2.26 5.31c-.508.293-.923 1.013-.923 1.6v10.18c0 .294.104.62.271.91.167.29.398.543.652.69l8.816 5.09c.508.293 1.34.293 1.848 0l8.816-5.09c.254-.147.485-.4.652-.69.167-.29.27-.616.27-.91V6.91c.003-.294-.1-.62-.268-.91zM12 19.11c-3.92 0-7.109-3.19-7.109-7.11 0-3.92 3.19-7.11 7.109-7.11a7.133 7.133 0 016.156 3.553l-3.076 1.78a3.567 3.567 0 00-3.08-1.78A3.56 3.56 0 008.444 12 3.56 3.56 0 0012 15.555a3.57 3.57 0 003.08-1.778l3.078 1.78A7.135 7.135 0 0112 19.11zm7.11-6.715h-.79V11.61h-.79v.785h-.79v.79h.79v.785h.79v-.785h.79zm2.962 0h-.79V11.61h-.79v.785h-.79v.79h.79v.785h.79v-.785h.79z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">C++</span>
+            </button>
+
+            {/* MySQL */}
+            <button type="button" aria-label="MySQL" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-orange-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.273.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.08-.14-.04-.067-.126-.1-.18-.153zM5.77 18.695h-.927a50.854 50.854 0 00-.27-4.41h-.008l-1.41 4.41H2.45l-1.4-4.41h-.01a72.892 72.892 0 00-.195 4.41H0c.055-1.966.192-3.81.41-5.53h1.15l1.335 4.064h.008l1.347-4.064h1.095c.242 2.015.384 3.86.428 5.53z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">MySQL</span>
+            </button>
+
+            {/* Vercel */}
+            <button type="button" aria-label="Vercel" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-slate-800"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24 22.525H0l12-21.05 12 21.05z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Vercel</span>
+            </button>
+
+            {/* Netlify */}
+            <button type="button" aria-label="Netlify" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-teal-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.934 8.519a1.044 1.044 0 0 1 .303.23l2.349 1.885-2.192 2.52-2.301-1.853c-.346-.28-.694-.559-1.051-.826a3.658 3.658 0 0 0-.819-.436 2.08 2.08 0 0 0-.934-.09 1.92 1.92 0 0 0-.874.32c-.251.19-.456.444-.592.734a2.536 2.536 0 0 0-.172.946c0 .328.06.652.177.957.117.305.29.584.507.82.434.472.98.82 1.575 1.004.595.184 1.23.2 1.836.047.606-.153 1.159-.46 1.575-.874.208-.207.381-.447.507-.708.063-.13.11-.267.141-.408.031-.141.045-.284.041-.427a2.619 2.619 0 0 0-.12-.468l-.148-.458h2.914c.05.284.073.572.068.86a4.617 4.617 0 0 1-.463 2.018 6.007 6.007 0 0 1-1.297 1.737c-.565.51-1.232.9-1.962 1.147-.73.247-1.506.347-2.279.294-.773-.053-1.524-.25-2.204-.578a5.906 5.906 0 0 1-1.849-1.353 4.992 4.992 0 0 1-1.2-2.016 5.237 5.237 0 0 1-.13-2.218c.1-.744.35-1.46.734-2.101a5.29 5.29 0 0 1 1.42-1.695 5.765 5.765 0 0 1 1.96-.95 6.217 6.217 0 0 1 2.204-.05c.756.1 1.484.35 2.134.734.65.384 1.204.9 1.621 1.516z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Netlify</span>
+            </button>
+
+            {/* VS Code */}
+            <button type="button" aria-label="VS Code" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-blue-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">VS Code</span>
+            </button>
+
+            {/* Mongoose */}
+            <button type="button" aria-label="Mongoose" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-red-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.53 5.67c-.44-.44-1.15-.44-1.59 0L5.67 11c-.44.44-.44 1.15 0 1.59l5.27 5.27c.44.44 1.15.44 1.59 0L17.8 12.59c.44-.44.44-1.15 0-1.59L12.53 5.67z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Mongoose</span>
+            </button>
+
+            {/* MongoDB */}
+            <button type="button" aria-label="MongoDB" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-green-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">MongoDB</span>
+            </button>
+
+            {/* MongoDB Compass */}
+            <button type="button" aria-label="MongoDB Compass" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-emerald-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Compass</span>
+            </button>
+
+            {/* Postman */}
+            <button type="button" aria-label="Postman" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-orange-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 0 0-.593.25l-4.453 4.453-.307-.307-.643-.643c4.389-4.376 5.18-4.418 5.996-3.753zm-4.863 4.861l4.44-4.44a.62.62 0 1 1 .847.903l-4.699 4.125-.588-.588zm.33.694l-1.1.238a.06.06 0 0 1-.067-.032.06.06 0 0 1 .01-.073l.645-.645.512.512zm-2.803-.459l1.172-1.172.879.878-1.979.426a.074.074 0 0 1-.085-.039.072.072 0 0 1 .013-.093zm-3.646 6.058a.076.076 0 0 1-.069-.083.077.077 0 0 1 .022-.046h.002l.946-.946 1.222 1.222-2.123-.147zm2.425-1.256a.228.228 0 0 0-.117.256l.203.865a.125.125 0 0 1-.211.117l-.584-.584-.46-.46a.677.677 0 0 1-.594-.566.687.687 0 0 1 .608-.796l.139-.139c.588-.588.92-.623 1.016-.623z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Postman</span>
+            </button>
+
+            {/* Figma */}
+            <button type="button" aria-label="Figma" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-purple-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Figma</span>
+            </button>
+
+            {/* TailwindCSS */}
+            <button type="button" aria-label="TailwindCSS" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-sky-400"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">TailwindCSS</span>
+            </button>
+
+            {/* JavaScript */}
+            <button type="button" aria-label="JavaScript" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-yellow-400"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">JavaScript</span>
+            </button>
+
+            {/* Continue with all other skill buttons... */}
+            {/* Note: I've included the first 6 skills as examples. You can copy-paste the rest of the skill buttons from your code */}
+            
+            {/* React.js */}
+            <button type="button" aria-label="React.js" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-cyan-400"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">React.js</span>
+            </button>
+
+            {/* Next.js */}
+            <button type="button" aria-label="Next.js" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-gray-400"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                    <path d="M12 8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Next.js</span>
+            </button>
+
+            {/* Node.js */}
+            <button type="button" aria-label="Node.js" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-green-400"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                    <path d="M12 8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Node.js</span>
+            </button>
+
+            {/* MongoDB */}
+            <button type="button" aria-label="MongoDB" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-green-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"></path>
+                    <path d="M12 8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 8c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">MongoDB</span>
+            </button>
+
+            {/* Git */}
+            <button type="button" aria-label="Git" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-red-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Git</span>
+            </button>
+
+            {/* jQuery */}
+            <button type="button" aria-label="jQuery" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-blue-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.534 5.874c.042.622.259 1.226.644 1.761 1.154 1.606 2.85 2.804 4.747 3.358-.597.249-1.25.38-1.897.38-.896 0-1.792-.249-2.569-.747a5.343 5.343 0 01-1.747-1.761c-.385-.535-.602-1.139-.644-1.761C.026 6.482 0 5.874 0 5.874s.026.608.068 1.23c.042.622.259 1.226.644 1.761.385.535.896 1.01 1.534 1.384.638.374 1.384.622 2.15.747.766.125 1.547.125 2.313 0 .766-.125 1.512-.373 2.15-.747.638-.374 1.149-.849 1.534-1.384.385-.535.602-1.139.644-1.761.042-.622.068-1.23.068-1.23s-.026.608-.068 1.23c-.042.622-.259 1.226-.644 1.761-.385.535-.896 1.01-1.534 1.384-.638.374-1.384.622-2.15.747-.766.125-1.547.125-2.313 0-.766-.125-1.512-.373-2.15-.747-.638-.374-1.149-.849-1.534-1.384z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">jQuery</span>
+            </button>
+
+            {/* EJS */}
+            <button type="button" aria-label="EJS" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-yellow-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.8 0L5.6 2.2 13.4 10 5.6 17.8 7.8 20l10-10L7.8 0z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">EJS</span>
+            </button>
+
+            {/* GSAP */}
+            <button type="button" aria-label="GSAP" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-green-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">GSAP</span>
+            </button>
+
+            {/* Gitea */}
+            <button type="button" aria-label="Gitea" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-green-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.209 4.603c-.247 0-.525.02-.84.088-.333.07-.71.17-1.15.3-.44.129-.95.299-1.534.5C.15 5.89-.326 6.26-.326 6.26s.19.17.525.299c.315.123.7.226 1.163.3.462.074.996.111 1.596.111.6 0 1.134-.037 1.596-.111.463-.074.848-.177 1.163-.3.335-.129.525-.299.525-.299s-.476-.37-1.01-.769c-.584-.201-1.094-.371-1.534-.5-.44-.13-.817-.23-1.15-.3-.315-.068-.593-.088-.84-.088zm15.582 0c-.247 0-.525.02-.84.088-.333.07-.71.17-1.15.3-.44.129-.95.299-1.534.5-.534.399-1.01.769-1.01.769s.19.17.525.299c.315.123.7.226 1.163.3.462.074.996.111 1.596.111.6 0 1.134-.037 1.596-.111.463-.074.848-.177 1.163-.3.335-.129.525-.299.525-.299s-.476-.37-1.01-.769c-.584-.201-1.094-.371-1.534-.5-.44-.13-.817-.23-1.15-.3-.315-.068-.593-.088-.84-.088z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Gitea</span>
+            </button>
+
+            {/* GitLab */}
+            <button type="button" aria-label="GitLab" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-orange-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23.955 13.587l-1.342-4.135-2.664-8.189c-.135-.423-.73-.423-.867 0L16.418 9.45H7.582L4.919 1.263c-.135-.423-.73-.423-.867 0L1.388 9.452.045 13.587c-.121.375.014.789.331 1.023L12 23.054l11.624-8.443c.318-.235.453-.648.331-1.024"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">GitLab</span>
+            </button>
+
+            {/* Bitbucket */}
+            <button type="button" aria-label="Bitbucket" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-blue-600"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M.778 1.213a.768.768 0 00-.768.892l3.263 19.81c.084.5.515.868 1.022.873H19.95a.772.772 0 00.77-.646l3.27-20.03a.768.768 0 00-.768-.891zM14.52 15.53H9.522L8.17 8.466h7.561z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Bitbucket</span>
+            </button>
+
+            {/* Azure DevOps */}
+            <button type="button" aria-label="Azure DevOps" className="group relative h-[2.6em] w-[2.6em] bg-transparent outline-none [-webkit-tap-highlight-color:transparent] perspective-[24em] transform-3d md:h-[3em] md:w-[3em]">
+              <span className="absolute left-0 top-0 block h-full w-full origin-bottom-right rotate-15 rounded-[1.25em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:transform-[rotate(25deg)_translate3d(-0.5em,-0.5em,0.5em)] bg-blue-500"></span>
+              <span className="absolute left-0 top-0 flex h-full w-full origin-[80%_50%] transform rounded-[1.25em] bg-[hsla(0,0%,100%,0.15)] backdrop-blur-[0.75em] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] [-webkit-backdrop-filter:blur(0.75em)] group-hover:transform-[translateZ(2em)]" style={{boxShadow: '0 0 0 0.1em hsla(0, 0%, 100%, 0.3) inset'}}>
+                <span className="m-auto flex h-[1.5em] w-[1.5em] items-center justify-center" aria-hidden="true">
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" role="img" viewBox="0 0 24 24" height="26" width="26" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 10.804L5.731 0l12.5 2.073L24 10.804c0 6.627-5.373 12-12 12s-12-5.373-12-12zM12 2.073c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm0 14.146c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"></path>
+                  </svg>
+                </span>
+              </span>
+              <span className="absolute left-0 right-0 top-full translate-y-0 whitespace-nowrap text-center text-sm leading-loose opacity-0 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.83,0,0.17,1)] group-hover:opacity-100 group-hover:transform-[translateY(20%)]">Azure DevOps</span>
+            </button>
+
+          </div>
+
+          {/* Additional skills section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-16 text-center"
+          >
+            
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default SkillsSection;

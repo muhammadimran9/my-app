@@ -1,0 +1,42 @@
+"use client";
+
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import SkillsSection from './SkillsSection';
+import FeaturedSections from './projectcard'
+
+const MainContent = () => {
+  const [activeSection, setActiveSection] = useState('home');
+
+  return (
+    <div className="main-content mx-5">
+      {/* Hero Section */}
+      <section className="space-y-2 bg-cover bg-no-repeat">
+        <div className="text-3xl font-medium text-neutral-900 dark:text-neutral-50 arabic-rtl arabic-bold">
+          <h1>Hi, I'm Muhammad Imran</h1>
+        </div>
+        <div className="space-y-4 arabic-rtl">
+          <ul className="list-disc flex flex-col gap-x-10 gap-y-2 text-lg text-neutral-700 dark:text-neutral-400 md:flex-row ltr:ml-5 rtl:mr-5">
+            <li>Based in Multan, Pakistan</li>
+            <li>Onsite</li>
+            <li>Part-time Freelancer</li>
+          </ul>
+          <p className="mt-6 leading-loose text-neutral-600 dark:text-neutral-300 ltr:text-left rtl:text-right arabic-text-base">
+            Experienced Full-Stack Web and Mobile App Developer specializing in MERN stack along with Next.js, and modern UI/UX with Tailwind CSS. I build high-performance APIs using Node.js and cloud technologies, and develop mobile apps with Kotlin, Java, KMP, and React Native. I also integrate AI into products—creating chatbots, automation workflows, and AI agents. Passionate about clean architecture, SEO-friendly development, and delivering fast, scalable digital solutions.
+          </p>
+        </div>
+      </section>
+
+      
+      <SkillsSection />
+
+      {/* Projects Section */}
+  <FeaturedSections />
+ 
+
+    
+    </div>
+  );
+};
+
+export default MainContent;
