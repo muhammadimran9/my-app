@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const AchievementRow = () => {
   return (
-    <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-800 bg-neutral-900 !p-0 md:col-span-1 flex flex-col from-yellow-400 to-orange-500">
+    <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 !p-0 md:col-span-1 flex flex-col from-yellow-400 to-orange-500">
       <div 
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out" 
         style={{
@@ -15,7 +15,7 @@ const AchievementRow = () => {
       
       <div className="flex flex-col p-6 items-center text-center">
         <Link 
-          className="bg-neutral-800 rounded-lg w-fit p-3 text-neutral-100" 
+          className="bg-neutral-100 dark:bg-neutral-800 rounded-lg w-fit p-3 text-neutral-900 dark:text-neutral-100" 
           href="/achievements"
         >
           <svg 
@@ -31,11 +31,11 @@ const AchievementRow = () => {
           </svg>
         </Link>
         
-        <h2 className="mb-1 mt-3 text-sm font-medium text-neutral-300">
+        <h2 className="mb-1 mt-3 text-sm font-medium text-neutral-800 dark:text-neutral-300">
           Achievements
         </h2>
         
-        <p className="text-xs text-neutral-400">
+        <p className="text-xs text-neutral-600 dark:text-neutral-400">
           Milestones from programs, projects, and communities.
         </p>
       </div>

@@ -19,7 +19,7 @@ const TechSkills = () => {
 
   const TechIcon = ({ icon }) => (
     <div className="px-2">
-      <div className="flex w-full space-x-2 rounded-full border border-neutral-600 px-4 py-2 shadow-sm" style={{backgroundColor: '#1D293D'}}>
+      <div className="flex w-full space-x-2 rounded-full border border-neutral-200 dark:border-neutral-600 px-4 py-2 shadow-sm bg-neutral-50 dark:bg-[#1D293D]">
         <div className={`h-6 w-6 ${icon.color}`}>
           <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="26" width="26">
             <circle cx="12" cy="12" r="8"></circle>
@@ -63,15 +63,15 @@ const TechSkills = () => {
         }
       `}</style>
       
-      <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-800 bg-neutral-900 !p-0 md:col-span-1 flex flex-col from-emerald-400 to-green-600">
+      <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 !p-0 md:col-span-1 flex flex-col from-emerald-400 to-green-600">
         <div className="flex flex-col p-6 items-center text-center">
-          <a className="bg-neutral-800 rounded-lg w-fit p-3 text-neutral-100" href="/">
+          <a className="bg-neutral-100 dark:bg-neutral-800 rounded-lg w-fit p-3 text-neutral-900 dark:text-neutral-100" href="/">
             <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="22" width="22">
               <path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11-6h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 6h-4V5h4v4zm-9 4H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6H5v-4h4v4zm8-6c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"></path>
             </svg>
           </a>
-          <h2 className="mb-1 mt-3 text-sm font-medium text-neutral-300">Skills & Tools</h2>
-          <p className="text-xs text-neutral-400">My professional skills and technologies I work with.</p>
+          <h2 className="mb-1 mt-3 text-sm font-medium text-neutral-800 dark:text-neutral-300">Skills & Tools</h2>
+          <p className="text-xs text-neutral-600 dark:text-neutral-400">My professional skills and technologies I work with.</p>
         </div>
         
         <div className="flex flex-col overflow-x-hidden">

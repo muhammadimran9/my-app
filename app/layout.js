@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
+import ThemeEnforcer from "../components/ThemeEnforcer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,9 +77,10 @@ export default function RootLayout({ children }) {
         <link rel="shortcut icon" href="/favicon.ico" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black text-black dark:text-white`}
       >
-        <div className="flex min-h-screen bg-black gap-[30px]">
+        <ThemeEnforcer />
+        <div className="flex min-h-screen bg-white dark:bg-black gap-[30px]">
           <Header />
           <main className="flex-1 lg:w-4/5 pt-20 lg:pt-0">
             {children}

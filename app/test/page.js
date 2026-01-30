@@ -5,9 +5,9 @@ import FirebaseTest from '../../components/FirebaseTest';
 
 const TestPage = () => {
   return (
-    <div className="min-h-screen bg-neutral-900 p-8">
+    <div className="min-h-screen bg-white dark:bg-neutral-900 p-8">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-2xl font-bold text-white mb-8">Firebase Connection Test</h1>
+        <h1 className="text-2xl font-bold text-black dark:text-white mb-8">Firebase Connection Test</h1>
         <FirebaseTest />
       </div>
     </div>
