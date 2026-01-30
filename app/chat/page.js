@@ -1,12 +1,6 @@
-"use client";
+'use client';
+import ChatApp from '../../components/ChatApp';
 
-import React from 'react';
-import ChatRoom from '../../components/ChatRoom';
-
-const ChatPage = () => {
-  return (
-    <ChatRoom />
-  );
-};
-
-export default ChatPage;
+export default function Chat() {
+  return <ChatApp />;
+}

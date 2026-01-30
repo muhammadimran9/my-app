@@ -1,11 +1,13 @@
 "use client";
 
 import React from "react";
-import ContactForm from "../../components/ContactForm";
+import SocialMediaCard from "../../components/SocialMediaCard";
 
 const ContactPage = () => {
   return (
-    <ContactForm />
+    <div className="min-h-screen bg-neutral-900">
+      <SocialMediaCard />
+    </div>
   );
 };
 

@@ -19,7 +19,7 @@ const TechSkills = () => {
 
   const TechIcon = ({ icon }) => (
     <div className="px-2">
-      <div className="flex w-full space-x-2 rounded-full border border-neutral-600 bg-neutral-800 px-4 py-2 shadow-sm">
+      <div className="flex w-full space-x-2 rounded-full border border-neutral-600 px-4 py-2 shadow-sm" style={{backgroundColor: '#1D293D'}}>
         <div className={`h-6 w-6 ${icon.color}`}>
           <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="26" width="26">
             <circle cx="12" cy="12" r="8"></circle>

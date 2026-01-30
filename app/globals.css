@@ -1,7 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #000000;
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.dark {
+  --background: #0a0a0a;
   --foreground: #ededed;
 }
 
@@ -13,64 +18,18 @@
 }
 
 html {
-  background: #000000 !important;
+  background: var(--background);
+  color-scheme: light;
+}
+
+html.dark {
   color-scheme: dark;
 }
 
 body {
-  background: #000000 !important;
+  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-main {
-  background: #000000 !important;
-}
-
-section {
-  background: #000000 !important;
-}
-
-/* Override all neutral backgrounds to black */
-[class*="bg-neutral"] {
-  background-color: #000000 !important;
-}
-
-[class*="bg-slate"] {
-  background-color: #000000 !important;
-}
-
-[class*="bg-gray"] {
-  background-color: #000000 !important;
-}
-
-[class*="bg-white"] {
-  background-color: #000000 !important;
-}
-
-[class*="dark:bg-neutral"] {
-  background-color: #000000 !important;
-}
-
-[class*="dark:bg-slate"] {
-  background-color: #000000 !important;
-}
-
-[class*="dark:bg-gray"] {
-  background-color: #000000 !important;
-}
-
-/* Keep colored backgrounds but darken them */
-[class*="bg-red"],
-[class*="bg-blue"],
-[class*="bg-green"],
-[class*="bg-purple"],
-[class*="bg-pink"],
-[class*="bg-orange"],
-[class*="bg-cyan"],
-[class*="bg-yellow"],
-[class*="bg-sky"],
-[class*="bg-violet"] {
-  filter: brightness(0.3);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 

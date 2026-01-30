@@ -11,7 +11,7 @@ const Navigation = () => {
     { href: '/', label: 'Home' },
     { href: '/chat', label: 'Chat Room' },
     { href: '/contact', label: 'Contact' },
-    { href: '/dashboard', label: 'Admin' }
+    { href: '/admin', label: 'Admin' }
   ];
 
   return (
