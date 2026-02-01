@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TranslationService } from '../utils/translation';
 import { useTheme } from '../contexts/ThemeContext';
+import PWAInstall from './PWAInstall';
 
 export default function Header() {
   const { theme, toggleTheme, isDark } = useTheme();
@@ -86,59 +87,66 @@ export default function Header() {
         </div>
 
         {/* Language and Theme Toggles */}
-        <div className="flex justify-between gap-4 mb-6">
-          {/* Language Toggle */}
-          <div className="relative flex items-center gap-1 rounded-full border-[1.5px] border-neutral-300 bg-neutral-100 p-1 dark:border-neutral-700 dark:bg-neutral-800" style={{width: '94px'}}>
-            <div className="absolute bottom-1 top-1 w-10 rounded-full bg-blue-500" style={{transform: language === 'FR' ? 'translateX(40px)' : 'none'}}></div>
-            <button 
-              className="relative z-10 flex h-8 w-10 items-center justify-center transition duration-200" 
-              tabIndex="0"
-              onClick={() => handleLanguageSwitch('US')}
-            >
-              <div className="flex flex-col items-center justify-center text-xs font-medium" style={{color: language === 'US' ? 'rgb(255, 255, 255)' : 'rgb(115, 115, 115)'}}>
-                US
-              </div>
-            </button>
-            <button 
-              className="relative z-10 flex h-8 w-10 items-center justify-center transition duration-200" 
-              tabIndex="0"
-              onClick={() => handleLanguageSwitch('FR')}
-            >
-              <div className="flex flex-col items-center justify-center text-xs font-medium" style={{color: language === 'FR' ? 'rgb(255, 255, 255)' : 'rgb(115, 115, 115)'}}>
-                {isTranslating && language === 'FR' ? '...' : 'FR'}
-              </div>
-            </button>
-          </div>
+        <div className="flex flex-col gap-3 mb-6">
+          <div className="flex justify-between gap-4">
+            {/* Language Toggle */}
+            <div className="relative flex items-center gap-1 rounded-full border-[1.5px] border-neutral-300 bg-neutral-100 p-1 dark:border-neutral-700 dark:bg-neutral-800" style={{width: '94px'}}>
+              <div className="absolute bottom-1 top-1 w-10 rounded-full bg-blue-500" style={{transform: language === 'FR' ? 'translateX(40px)' : 'none'}}></div>
+              <button 
+                className="relative z-10 flex h-8 w-10 items-center justify-center transition duration-200" 
+                tabIndex="0"
+                onClick={() => handleLanguageSwitch('US')}
+              >
+                <div className="flex flex-col items-center justify-center text-xs font-medium" style={{color: language === 'US' ? 'rgb(255, 255, 255)' : 'rgb(115, 115, 115)'}}>
+                  US
+                </div>
+              </button>
+              <button 
+                className="relative z-10 flex h-8 w-10 items-center justify-center transition duration-200" 
+                tabIndex="0"
+                onClick={() => handleLanguageSwitch('FR')}
+              >
+                <div className="flex flex-col items-center justify-center text-xs font-medium" style={{color: language === 'FR' ? 'rgb(255, 255, 255)' : 'rgb(115, 115, 115)'}}>
+                  {isTranslating && language === 'FR' ? '...' : 'FR'}
+                </div>
+              </button>
+            </div>
 
-          {/* Theme Toggle */}
-          <div className="relative flex items-center gap-2 rounded-full border-[1.5px] theme-border p-1" style={{ borderColor: 'var(--border-color)', background: 'var(--card-bg)' }}>
-            <div className="absolute bottom-1 top-1 w-8 rounded-full transition-transform duration-300" style={{ background: 'var(--button-bg)', transform: isDark ? 'translateX(40px)' : 'translateX(0)' }}></div>
-            <button 
-              className="relative z-10 flex h-8 w-8 items-center justify-center transition duration-200" 
-              aria-label="Switch to light mode" 
-              tabIndex="0"
-              onClick={toggleTheme}
-            >
-              <div style={{color: !isDark ? 'rgb(255, 255, 255)' : 'var(--text-muted)'}}>
-                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="17" width="17" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .624.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .51-.375A3.5 3.5 0 0 1 7 8m4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"></path>
-                  <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708zm1.734 3.374a2 2 0 1 1 3.296 2.198q.3.423.516.898a3 3 0 1 0-4.84-3.225q.529.017 1.028.129m4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377M14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"></path>
-                </svg>
-              </div>
-            </button>
-            <button 
-              className="relative z-10 flex h-8 w-8 items-center justify-center transition duration-200" 
-              aria-label="Switch to dark mode" 
-              tabIndex="0"
-              onClick={toggleTheme}
-            >
-              <div style={{color: isDark ? 'rgb(255, 255, 255)' : 'var(--text-muted)'}}>
-                <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="17" width="17" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .625.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .509-.375A3.5 3.5 0 0 1 7 8m4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"></path>
-                  <path d="M11.286 1.778a.5.5 0 0 0-.565-.755 4.595 4.595 0 0 0-3.18 5.003 5.5 5.5 0 0 1 1.055.209A3.6 3.6 0 0 1 9.83 2.617a4.593 4.593 0 0 0 4.31 5.744 3.58 3.58 0 0 1-2.241.634q.244.477.394 1a4.59 4.59 0 0 0 3.624-2.04.5.5 0 0 0-.565-.755 3.593 3.593 0 0 1-4.065-5.422z"></path>
-                </svg>
-              </div>
-            </button>
+            {/* Theme Toggle */}
+            <div className="relative flex items-center gap-2 rounded-full border-[1.5px] theme-border p-1" style={{ borderColor: 'var(--border-color)', background: 'var(--card-bg)' }}>
+              <div className="absolute bottom-1 top-1 w-8 rounded-full transition-transform duration-300" style={{ background: 'var(--button-bg)', transform: isDark ? 'translateX(40px)' : 'translateX(0)' }}></div>
+              <button 
+                className="relative z-10 flex h-8 w-8 items-center justify-center transition duration-200" 
+                aria-label="Switch to light mode" 
+                tabIndex="0"
+                onClick={toggleTheme}
+              >
+                <div style={{color: !isDark ? 'rgb(255, 255, 255)' : 'var(--text-muted)'}}>
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="17" width="17" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .624.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .51-.375A3.5 3.5 0 0 1 7 8m4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"></path>
+                    <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708zm1.734 3.374a2 2 0 1 1 3.296 2.198q.3.423.516.898a3 3 0 1 0-4.84-3.225q.529.017 1.028.129m4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377M14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"></path>
+                  </svg>
+                </div>
+              </button>
+              <button 
+                className="relative z-10 flex h-8 w-8 items-center justify-center transition duration-200" 
+                aria-label="Switch to dark mode" 
+                tabIndex="0"
+                onClick={toggleTheme}
+              >
+                <div style={{color: isDark ? 'rgb(255, 255, 255)' : 'var(--text-muted)'}}>
+                  <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="17" width="17" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .625.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .509-.375A3.5 3.5 0 0 1 7 8m4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"></path>
+                    <path d="M11.286 1.778a.5.5 0 0 0-.565-.755 4.595 4.595 0 0 0-3.18 5.003 5.5 5.5 0 0 1 1.055.209A3.6 3.6 0 0 1 9.83 2.617a4.593 4.593 0 0 0 4.31 5.744 3.58 3.58 0 0 1-2.241.634q.244.477.394 1a4.59 4.59 0 0 0 3.624-2.04.5.5 0 0 0-.565-.755 3.593 3.593 0 0 1-4.065-5.422z"></path>
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+          
+          {/* PWA Install Button */}
+          <div className="flex justify-center">
+            <PWAInstall />
           </div>
         </div>
 

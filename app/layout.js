@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import { AuthProvider } from "../contexts/AuthContext";
+import PWABanner from "../components/PWABanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Muhammad Imran - Full Stack Developer",
+  title: "Spot For You - Muhammad Imran",
   description: "Full-Stack Web & Mobile App Developer specializing in MERN stack, Next.js, and modern UI/UX with Tailwind CSS",
   keywords: "Full Stack Developer, MERN Stack, Next.js, React, Node.js, MongoDB, JavaScript, TypeScript, Mobile App Developer",
   authors: [{ name: "Muhammad Imran" }],
@@ -31,7 +32,7 @@ export const metadata = {
     apple: "/images/profile-pic.jpeg",
   },
   manifest: "/manifest.json",
-  themeColor: "#0a0a0a",
+  themeColor: "#3b82f6",
   colorScheme: "dark light",
   viewport: {
     width: "device-width",
@@ -41,19 +42,19 @@ export const metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Imran Portfolio",
+    title: "Spot For You",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://imrandigitals.online",
-    title: "Muhammad Imran - Full Stack Developer",
+    title: "Spot For You - Muhammad Imran",
     description: "Full-Stack Web & Mobile App Developer specializing in MERN stack, Next.js, and modern UI/UX",
-    siteName: "Muhammad Imran Portfolio",
+    siteName: "Spot For You",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Imran - Full Stack Developer",
+    title: "Spot For You - Muhammad Imran",
     description: "Full-Stack Web & Mobile App Developer specializing in MERN stack, Next.js, and modern UI/UX",
   },
 };
@@ -62,14 +63,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta name="application-name" content="Imran Portfolio" />
+        <meta name="application-name" content="Spot For You" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Imran Portfolio" />
+        <meta name="apple-mobile-web-app-title" content="Spot For You" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="msapplication-TileColor" content="#0a0a0a" />
+        <meta name="msapplication-TileColor" content="#3b82f6" />
         <meta name="msapplication-tap-highlight" content="no" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link rel="apple-touch-icon" href="/images/profile-pic.jpeg" />
@@ -77,6 +78,23 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                      console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                      console.log('SW registration failed: ', registrationError);
+                    });
+                });
+              }
+            `,
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -84,6 +102,7 @@ export default function RootLayout({ children }) {
       >
         <ThemeProvider>
           <AuthProvider>
+            <PWABanner />
             <div className="layout-container" style={{ background: 'var(--background)' }}>
               <Header />
               <main className="main-content">
