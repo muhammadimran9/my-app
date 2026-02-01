@@ -48,11 +48,11 @@ const FeaturedSections = () => {
       </div>
       
       <div className="space-y-4">
-        <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-800 bg-neutral-900 p-6">
+        <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6">
           <div className="flex flex-col mb-6">
             <Link 
               href="/projects"
-              className="bg-neutral-800 rounded-lg w-fit p-3 text-neutral-100 hover:opacity-80 transition-opacity mb-4"
+              className="bg-neutral-100 dark:bg-neutral-800 rounded-lg w-fit p-3 text-neutral-900 dark:text-neutral-100 hover:opacity-80 transition-opacity mb-4"
             >
               <svg 
                 stroke="currentColor" 
@@ -67,11 +67,11 @@ const FeaturedSections = () => {
               </svg>
             </Link>
             
-            <h2 className="mb-1 text-base font-semibold text-neutral-300">
+            <h2 className="mb-1 text-base font-semibold text-neutral-800 dark:text-neutral-300">
               Projects Showcase
             </h2>
             
-            <p className="text-sm text-neutral-400">
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
               A selection of real apps built to solve real problems.
             </p>
           </div>
@@ -83,7 +83,7 @@ const FeaturedSections = () => {
                 href={`/projects/${project.title}`}
                 className="block group"
               >
-                <div className="rounded-lg overflow-hidden border border-neutral-700 bg-neutral-800 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+                <div className="rounded-lg overflow-hidden border border-neutral-700 bg-neutral-100 dark:bg-neutral-800 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
                   <div className="relative w-full h-28">
                     <Image
                       src={project.imageUrl}
@@ -102,11 +102,11 @@ const FeaturedSections = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="md:col-span-2">
-            <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-800 bg-neutral-900 p-6">
+            <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6">
               <div className="flex flex-col mb-6">
                 <Link 
                   href="/projects"
-                  className="bg-neutral-800 rounded-lg w-fit p-3 text-neutral-100 hover:opacity-80 transition-opacity mb-4"
+                  className="bg-neutral-100 dark:bg-neutral-800 rounded-lg w-fit p-3 text-neutral-900 dark:text-neutral-100 hover:opacity-80 transition-opacity mb-4"
                 >
                   <svg 
                     stroke="currentColor" 
@@ -121,11 +121,11 @@ const FeaturedSections = () => {
                   </svg>
                 </Link>
                 
-                <h2 className="mb-1 text-base font-semibold text-neutral-300">
+                <h2 className="mb-1 text-base font-semibold text-neutral-800 dark:text-neutral-300">
                   Projects Showcase
                 </h2>
                 
-                <p className="text-sm text-neutral-400">
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
                   A selection of real apps built to solve real problems.
                 </p>
               </div>
@@ -137,7 +137,7 @@ const FeaturedSections = () => {
                     href={`/projects/${project.title}`}
                     className="block group"
                   >
-                    <div className="rounded-lg overflow-hidden border border-neutral-700 bg-neutral-800 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
+                    <div className="rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
                       <div className="relative w-full h-28">
                         <Image
                           src={project.imageUrl}
@@ -157,10 +157,10 @@ const FeaturedSections = () => {
           
           <TechSkills />
           
-          <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-800 bg-neutral-900 p-0 flex flex-col">
+          <div className="relative overflow-hidden rounded-2xl border-[1.5px] border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-0 flex flex-col">
             <div className="flex flex-col p-6 items-center text-center">
               <Link
-                className="bg-neutral-800 rounded-lg w-fit p-3 text-neutral-100"
+                className="bg-neutral-100 dark:bg-neutral-800 rounded-lg w-fit p-3 text-neutral-900 dark:text-neutral-100"
                 href="/about"
               >
                 <svg
@@ -176,16 +176,16 @@ const FeaturedSections = () => {
                 </svg>
               </Link>
 
-              <h2 className="mb-1 mt-3 text-sm font-medium text-neutral-300">
+              <h2 className="mb-1 mt-3 text-sm font-medium text-neutral-800 dark:text-neutral-300">
                 About Me
               </h2>
-              <p className="text-xs text-neutral-400">
+              <p className="text-xs text-neutral-600 dark:text-neutral-400">
                 Who I am and what I do.
               </p>
             </div>
 
             <div className="flex items-center justify-center pb-6">
-              <div className="w-20 h-20 rounded-full bg-neutral-700"></div>
+              <div className="w-20 h-20 rounded-full bg-neutral-200 dark:bg-neutral-700"></div>
             </div>
           </div>
         </div>

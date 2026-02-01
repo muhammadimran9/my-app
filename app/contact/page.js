@@ -5,7 +5,7 @@ import SocialMediaCard from "../../components/SocialMediaCard";
 
 const ContactPage = () => {
   return (
-    <div className="min-h-screen bg-neutral-900">
+    <div className="min-h-screen bg-white dark:bg-neutral-900">
       <SocialMediaCard />
     </div>
   );

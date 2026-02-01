@@ -53,7 +53,7 @@ const ProjectsPage = () => {
                   className="h-[200px] w-full rounded-t-xl object-cover"
                 />
 
-                <div className="absolute inset-0 flex items-center justify-center gap-1 rounded-t-xl bg-slate-800 text-sm font-medium text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-80">
+                <div className="absolute inset-0 flex items-center justify-center gap-1 rounded-t-xl bg-neutral-100 dark:bg-slate-800 text-sm font-medium text-neutral-900 dark:text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-80">
                   <span>View Project</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,7 @@ const ProjectsPage = () => {
                   }}
                 />
 
-                <div className="absolute inset-0 flex items-center justify-center gap-1 rounded-t-xl bg-slate-800 text-sm font-medium text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-80">
+                <div className="absolute inset-0 flex items-center justify-center gap-1 rounded-t-xl bg-neutral-100 dark:bg-slate-800 text-sm font-medium text-neutral-900 dark:text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-80">
                   <span>View Project</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +198,7 @@ const ProjectsPage = () => {
                 }}
               />
 
-              <div className="absolute inset-0 flex items-center justify-center gap-1 rounded-t-xl bg-slate-800 text-sm font-medium text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-80">
+              <div className="absolute inset-0 flex items-center justify-center gap-1 rounded-t-xl bg-neutral-100 dark:bg-slate-800 text-sm font-medium text-neutral-900 dark:text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-80">
                 <span>View Project</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +268,7 @@ const ProjectsPage = () => {
                 }}
               />
 
-              <div className="absolute inset-0 flex items-center justify-center gap-1 rounded-t-xl bg-slate-800 text-sm font-medium text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-80">
+              <div className="absolute inset-0 flex items-center justify-center gap-1 rounded-t-xl bg-neutral-100 dark:bg-slate-800 text-sm font-medium text-neutral-900 dark:text-neutral-50 opacity-0 transition-opacity duration-300 group-hover:opacity-80">
                 <span>View Project</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
