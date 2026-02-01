@@ -2,6 +2,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, push, onValue, serverTimestamp } from 'firebase/database';
+import { useAuth } from '../contexts/AuthContext';
+import AuthLogin from './AuthLogin';
+import ThemedButton from './ThemedButton';
+import ThemedCard from './ThemedCard';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCxtPE4mUZV8dV39rRhVMC-F9CgphLTwUo",
@@ -17,13 +21,14 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 const ChatApp = () => {
+  const { user, logout, loading } = useAuth();
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
-  const [username, setUsername] = useState('');
-  const [isUsernameSet, setIsUsernameSet] = useState(false);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
+    if (!user) return;
+    
     const messagesRef = ref(database, 'messages');
     const unsubscribe = onValue(messagesRef, (snapshot) => {
       const data = snapshot.val();
@@ -37,7 +42,7 @@ const ChatApp = () => {
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [user]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -45,98 +50,125 @@ const ChatApp = () => {
 
   const sendMessage = async (e) => {
     e.preventDefault();
-    if (!newMessage.trim()) return;
+    if (!newMessage.trim() || !user) return;
 
     const messagesRef = ref(database, 'messages');
     await push(messagesRef, {
       text: newMessage,
-      username: username,
+      username: user.name,
+      userId: user.uid,
+      userPhoto: user.photoURL,
+      provider: user.provider,
       timestamp: serverTimestamp()
     });
 
     setNewMessage('');
   };
 
-  const handleUsernameSubmit = (e) => {
-    e.preventDefault();
-    if (username.trim()) {
-      setIsUsernameSet(true);
-    }
-  };
-
-  if (!isUsernameSet) {
+  if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-neutral-900">
-        <div className="bg-neutral-800 p-8 rounded-lg shadow-lg w-96">
-          <h2 className="text-2xl font-bold text-white mb-6 text-center">Join Live Chat</h2>
-          <form onSubmit={handleUsernameSubmit}>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter your name"
-              className="w-full p-3 rounded-lg bg-neutral-700 text-white border border-neutral-600 focus:border-blue-500 focus:outline-none"
-              maxLength={20}
-              required
-            />
-            <button
-              type="submit"
-              className="w-full mt-4 p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              Start Chatting
-            </button>
-          </form>
-        </div>
+      <div className="flex items-center justify-center min-h-screen" style={{ background: 'var(--background)' }}>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2" style={{ borderColor: 'var(--button-bg)' }}></div>
       </div>
     );
   }
 
+  if (!user) {
+    return <AuthLogin />;
+  }
+
   return (
-    <div className="flex flex-col h-screen bg-neutral-900">
-      <div className="bg-neutral-800 p-4 border-b border-neutral-700">
-        <h1 className="text-xl font-bold text-white">🔴 Live Chat</h1>
-        <p className="text-neutral-400 text-sm">Welcome, {username}!</p>
+    <div className="flex flex-col h-screen" style={{ background: 'var(--background)' }}>
+      {/* Header */}
+      <div className="theme-card p-4 flex justify-between items-center">
+        <div>
+          <h1 className="text-xl font-bold" style={{ color: 'var(--foreground)' }}>🔴 Live Chat</h1>
+          <div className="flex items-center gap-2 mt-1">
+            {user.photoURL && (
+              <img 
+                src={user.photoURL} 
+                alt={user.name} 
+                className="w-6 h-6 rounded-full"
+              />
+            )}
+            <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+              Welcome, {user.name}!
+            </p>
+          </div>
+        </div>
+        <ThemedButton onClick={logout} variant="outline" size="sm">
+          Logout
+        </ThemedButton>
       </div>
 
+      {/* Messages */}
       <div className="flex-1 overflow-y-auto p-4 space-y-3">
         {messages.map((message) => (
           <div
             key={message.id}
-            className={`flex ${message.username === username ? 'justify-end' : 'justify-start'}`}
+            className={`flex ${message.userId === user.uid ? 'justify-end' : 'justify-start'}`}
           >
-            <div
-              className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
-                message.username === username
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-neutral-700 text-white'
-              }`}
-            >
-              {message.username !== username && (
-                <p className="text-xs text-neutral-300 mb-1">{message.username}</p>
+            <div className="max-w-xs lg:max-w-md">
+              {message.userId !== user.uid && (
+                <div className="flex items-center gap-2 mb-1">
+                  {message.userPhoto && (
+                    <img 
+                      src={message.userPhoto} 
+                      alt={message.username} 
+                      className="w-4 h-4 rounded-full"
+                    />
+                  )}
+                  <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
+                    {message.username}
+                  </p>
+                  {message.provider && (
+                    <span className="text-xs px-1 rounded" style={{ 
+                      background: message.provider === 'google.com' ? '#4285F4' : '#333',
+                      color: 'white'
+                    }}>
+                      {message.provider === 'google.com' ? 'G' : 'GH'}
+                    </span>
+                  )}
+                </div>
               )}
-              <p>{message.text}</p>
+              <div
+                className={`px-4 py-2 rounded-lg ${
+                  message.userId === user.uid
+                    ? 'theme-button'
+                    : 'theme-card'
+                }`}
+                style={{
+                  background: message.userId === user.uid ? 'var(--button-bg)' : 'var(--card-bg)',
+                  color: message.userId === user.uid ? 'var(--button-text)' : 'var(--foreground)'
+                }}
+              >
+                <p>{message.text}</p>
+              </div>
             </div>
           </div>
         ))}
         <div ref={messagesEndRef} />
       </div>
 
-      <form onSubmit={sendMessage} className="p-4 bg-neutral-800 border-t border-neutral-700">
-        <div className="flex space-x-2">
+      {/* Input */}
+      <form onSubmit={sendMessage} className="p-4 theme-card">
+        <div className="flex gap-2">
           <input
             type="text"
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             placeholder="Type your message..."
-            className="flex-1 p-3 rounded-lg bg-neutral-700 text-white border border-neutral-600 focus:border-blue-500 focus:outline-none"
+            className="flex-1 p-3 rounded-lg theme-input"
+            style={{
+              background: 'var(--input-bg)',
+              border: '1px solid var(--input-border)',
+              color: 'var(--foreground)'
+            }}
             maxLength={500}
           />
-          <button
-            type="submit"
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-          >
+          <ThemedButton type="submit" disabled={!newMessage.trim()}>
             Send
-          </button>
+          </ThemedButton>
         </div>
       </form>
     </div>

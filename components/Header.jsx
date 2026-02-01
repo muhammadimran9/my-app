@@ -3,40 +3,18 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { TranslationService } from '../utils/translation';
+import { useTheme } from '../contexts/ThemeContext';
 
 export default function Header() {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const { theme, toggleTheme, isDark } = useTheme();
   const [language, setLanguage] = useState('US');
   const [isTranslating, setIsTranslating] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
-    } else {
-      setIsDarkMode(false);
-      document.documentElement.classList.remove('dark');
-    }
-    
     const savedLanguage = TranslationService.getStoredLanguage();
     setLanguage(savedLanguage);
   }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !isDarkMode;
-    setIsDarkMode(newDarkMode);
-    
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  };
 
   const handleLanguageSwitch = async (newLanguage) => {
     if (isTranslating || newLanguage === language) return;
@@ -58,8 +36,20 @@ export default function Header() {
   };
 
   return (
-    <aside className="sticky top-0 self-start lg:w-1/5 lg:pl-5">
-      <div className="flex flex-col min-h-screen bg-neutral-50 dark:bg-neutral-900 p-5">
+    <>
+      {/* Mobile Menu Button */}
+      <button 
+        className="fixed top-4 left-4 z-50 lg:hidden p-2 rounded-lg theme-card"
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}
+      >
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+        </svg>
+      </button>
+
+      <aside className={`sidebar ${isMenuOpen ? 'open' : ''} lg:sidebar lg:open`}>
+        <div className="flex flex-col h-full theme-card p-4 lg:p-5" style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}>
         {/* Profile Image */}
         <button className="cursor-pointer transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 dark:focus:ring-offset-neutral-900 rounded-full mb-4" aria-label="View profile details">
           <div className="overflow-hidden rounded-full">
@@ -121,15 +111,15 @@ export default function Header() {
           </div>
 
           {/* Theme Toggle */}
-          <div className="relative flex items-center gap-2 rounded-full border-[1.5px] border-neutral-300 bg-neutral-100 p-1 dark:border-neutral-700 dark:bg-neutral-800">
-            <div className="absolute bottom-1 top-1 w-8 rounded-full bg-neutral-300 dark:bg-neutral-700" style={{transform: isDarkMode ? 'translateX(40px)' : 'translateX(0)'}}></div>
+          <div className="relative flex items-center gap-2 rounded-full border-[1.5px] theme-border p-1" style={{ borderColor: 'var(--border-color)', background: 'var(--card-bg)' }}>
+            <div className="absolute bottom-1 top-1 w-8 rounded-full transition-transform duration-300" style={{ background: 'var(--button-bg)', transform: isDark ? 'translateX(40px)' : 'translateX(0)' }}></div>
             <button 
               className="relative z-10 flex h-8 w-8 items-center justify-center transition duration-200" 
               aria-label="Switch to light mode" 
               tabIndex="0"
-              onClick={toggleDarkMode}
+              onClick={toggleTheme}
             >
-              <div style={{color: !isDarkMode ? 'rgb(255, 255, 255)' : 'rgb(115, 115, 115)'}}>
+              <div style={{color: !isDark ? 'rgb(255, 255, 255)' : 'var(--text-muted)'}}>
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="17" width="17" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .624.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .51-.375A3.5 3.5 0 0 1 7 8m4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"></path>
                   <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708zm1.734 3.374a2 2 0 1 1 3.296 2.198q.3.423.516.898a3 3 0 1 0-4.84-3.225q.529.017 1.028.129m4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377M14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"></path>
@@ -140,9 +130,9 @@ export default function Header() {
               className="relative z-10 flex h-8 w-8 items-center justify-center transition duration-200" 
               aria-label="Switch to dark mode" 
               tabIndex="0"
-              onClick={toggleDarkMode}
+              onClick={toggleTheme}
             >
-              <div style={{color: isDarkMode ? 'rgb(255, 255, 255)' : 'rgb(115, 115, 115)'}}>
+              <div style={{color: isDark ? 'rgb(255, 255, 255)' : 'var(--text-muted)'}}>
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="17" width="17" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .625.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .509-.375A3.5 3.5 0 0 1 7 8m4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"></path>
                   <path d="M11.286 1.778a.5.5 0 0 0-.565-.755 4.595 4.595 0 0 0-3.18 5.003 5.5 5.5 0 0 1 1.055.209A3.6 3.6 0 0 1 9.83 2.617a4.593 4.593 0 0 0 4.31 5.744 3.58 3.58 0 0 1-2.241.634q.244.477.394 1a4.59 4.59 0 0 0 3.624-2.04.5.5 0 0 0-.565-.755 3.593 3.593 0 0 1-4.065-5.422z"></path>
@@ -153,12 +143,12 @@ export default function Header() {
         </div>
 
         {/* Divider */}
-        <div className="my-4 border-t border-neutral-300 dark:border-neutral-700"></div>
+        <div className="my-4 theme-border" style={{ borderTop: '1px solid var(--border-color)' }}></div>
 
         {/* Navigation Links */}
         <nav className="flex flex-col gap-y-1 flex-1" data-no-translate>
           <Link href="/">
-            <div className="flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:!text-neutral-200">
+            <div className="flex items-center gap-2 py-2 px-4 rounded-lg group theme-card" style={{ background: 'var(--button-bg)', color: 'var(--button-text)' }}>
               <div className="transition-all duration-300 group-hover:-rotate-12 animate-pulse">
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm9-8.586 6 6V15l.001 5H6v-9.585l6-6.001z"></path>
@@ -166,14 +156,14 @@ export default function Header() {
                 </svg>
               </div>
               <div className="grow">Home</div>
-              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" className="animate-pulse text-gray-500" height="22" width="22" xmlns="http://www.w3.org/2000/svg">
+              <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" className="animate-pulse" style={{ color: 'var(--text-muted)' }} height="22" width="22" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"></path>
               </svg>
             </div>
           </Link>
           
           <Link href="/about">
-            <div className="flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300">
+            <div className="flex items-center gap-2 py-2 px-4 rounded-lg group hover:theme-card transition-all duration-300 hover:scale-105" style={{ color: 'var(--text-secondary)' }}>
               <div className="transition-all duration-300 group-hover:-rotate-12">
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"></path>
@@ -184,7 +174,7 @@ export default function Header() {
           </Link>
           
           <Link href="/achievements">
-            <div className="flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300">
+            <div className="flex items-center gap-2 py-2 px-4 rounded-lg group hover:theme-card transition-all duration-300 hover:scale-105" style={{ color: 'var(--text-secondary)' }}>
               <div className="transition-all duration-300 group-hover:-rotate-12">
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 256 256" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M128,136a8,8,0,0,1-8,8H72a8,8,0,0,1,0-16h48A8,8,0,0,1,128,136Zm-8-40H72a8,8,0,0,0,0,16h48a8,8,0,0,0,0-16Zm112,65.47V224A8,8,0,0,1,220,231l-24-13.74L172,231A8,8,0,0,1,160,224V200H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216a16,16,0,0,1,16,16V86.53a51.88,51.88,0,0,1,0,74.94ZM160,184V161.47A52,52,0,0,1,216,76V56H40V184Zm56-12a51.88,51.88,0,0,1-40,0v38.22l16-9.16a8,8,0,0,1,7.94,0l16,9.16Zm16-48a36,36,0,1,0-36,36A36,36,0,0,0,232,124Z"></path>
@@ -195,7 +185,7 @@ export default function Header() {
           </Link>
           
           <Link href="/projects">
-            <div className="flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300">
+            <div className="flex items-center gap-2 py-2 px-4 rounded-lg group hover:theme-card transition-all duration-300 hover:scale-105" style={{ color: 'var(--text-secondary)' }}>
               <div className="transition-all duration-300 group-hover:-rotate-12">
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M19 10H5c-1.103 0-2 .897-2 2v8c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-8c0-1.103-.897-2-2-2zM5 20v-8h14l.002 8H5zM5 6h14v2H5zm2-4h10v2H7z"></path>
@@ -206,7 +196,7 @@ export default function Header() {
           </Link>
           
           <Link href="/dashboard">
-            <div className="flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300">
+            <div className="flex items-center gap-2 py-2 px-4 rounded-lg group hover:theme-card transition-all duration-300 hover:scale-105" style={{ color: 'var(--text-secondary)' }}>
               <div className="transition-all duration-300 group-hover:-rotate-12">
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm11-6h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 6h-4V5h4v4zm-9 4H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1zm-1 6H5v-4h4v4zm8-6c-2.206 0-4 1.794-4 4s1.794 4 4 4 4-1.794 4-4-1.794-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"></path>
@@ -217,7 +207,7 @@ export default function Header() {
           </Link>
           
           <Link href="/chat">
-            <div className="flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300">
+            <div className="flex items-center gap-2 py-2 px-4 rounded-lg group hover:theme-card transition-all duration-300 hover:scale-105" style={{ color: 'var(--text-secondary)' }}>
               <div className="transition-all duration-300 group-hover:-rotate-12">
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 256 256" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M132,20A104.11,104.11,0,0,0,28,124v84a20,20,0,0,0,20,20h84a104,104,0,0,0,0-208Zm0,184H52V124a80,80,0,1,1,80,80Zm-8-76a16,16,0,1,1-16-16A16,16,0,0,1,124,128Zm48,0a16,16,0,1,1-16-16A16,16,0,0,1,172,128Z"></path>
@@ -228,7 +218,7 @@ export default function Header() {
           </Link>
           
           <Link href="/contact">
-            <div className="flex items-center gap-2 py-2 px-4 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 hover:dark:text-neutral-300 rounded-lg group hover:dark:lg:bg-neutral-800 hover:dark:!text-neutral-300 hover:lg:bg-neutral-200 hover:lg:rounded-lg lg:hover:scale-105 lg:transition-all lg:duration-300">
+            <div className="flex items-center gap-2 py-2 px-4 rounded-lg group hover:theme-card transition-all duration-300 hover:scale-105" style={{ color: 'var(--text-secondary)' }}>
               <div className="transition-all duration-300 group-hover:-rotate-12">
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6 22h15v-2H6.012C5.55 19.988 5 19.805 5 19s.55-.988 1.012-1H21V4c0-1.103-.897-2-2-2H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3zM5 8V5c0-.805.55-.988 1-1h13v12H5V8z"></path>
@@ -240,7 +230,7 @@ export default function Header() {
           </Link>
           
           <Link href="/smart-talk">
-            <div className="my-1 flex items-center gap-2 rounded-full border border-blue-600 bg-blue-600/10 px-4 py-2 text-blue-600 hover:bg-blue-600/20 dark:border-blue-300 dark:bg-blue-300/10 dark:text-blue-300 dark:hover:bg-blue-400/20 lg:transition-all lg:duration-300 lg:hover:scale-105">
+            <div className="my-1 flex items-center gap-2 rounded-full px-4 py-2 transition-all duration-300 hover:scale-105" style={{ border: '1px solid var(--link-color)', background: 'var(--link-color)10', color: 'var(--link-color)' }}>
               <div className="transition-all duration-300 group-hover:-rotate-12">
                 <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 16 16" height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                   <path fillRule="evenodd" clipRule="evenodd" d="M8.48 4h4l.5.5v2.03h.52l.5.5V8l-.5.5h-.52v3l-.5.5H9.36l-2.5 2.76L6 14.4V12H3.5l-.5-.64V8.5h-.5L2 8v-.97l.5-.5H3V4.36L3.53 4h4V2.86A1 1 0 0 1 7 2a1 1 0 0 1 2 0 1 1 0 0 1-.52.83V4zM12 8V5H4v5.86l2.5.14H7v2.19l1.8-2.04.35-.15H12V8zm-2.12.51a2.71 2.71 0 0 1-1.37.74v-.01a2.71 2.71 0 0 1-2.42-.74l-.7.71c.34.34.745.608 1.19.79.45.188.932.286 1.42.29a3.7 3.7 0 0 0 2.58-1.07l-.7-.71zM6.49 6.5h-1v1h1v-1zm3 0h1v1h-1v-1z"></path>
@@ -253,11 +243,11 @@ export default function Header() {
         
         {/* Footer */}
         <div className="mt-auto pt-4">
-          <div className="border-t border-neutral-300 dark:border-neutral-700 pt-4">
-            <div className="font-sora flex flex-wrap items-center justify-center gap-1 text-center text-xs text-neutral-600 dark:text-neutral-400" data-no-translate>
+          <div className="pt-4" style={{ borderTop: '1px solid var(--border-color)' }}>
+            <div className="font-sora flex flex-wrap items-center justify-center gap-1 text-center text-xs" style={{ color: 'var(--text-muted)' }} data-no-translate>
               <p>COPYRIGHT © 2025</p>
               <p>Muhammad Imran. All rights reserved.</p>
-              <p className="bg-blue-500 text-white border-2 border-neutral-400 dark:border-neutral-500 px-2 py-0.5 rounded-2xl">v 1.0</p>
+              <p className="px-2 py-0.5 rounded-2xl" style={{ background: 'var(--button-bg)', color: 'var(--button-text)', border: '2px solid var(--border-color)' }}>v 1.0</p>
             </div>
           </div>
         </div>
