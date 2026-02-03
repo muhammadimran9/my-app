@@ -25,8 +25,6 @@ const nextConfig = {
       },
     ],
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/nextjs-portfolio/' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/nextjs-portfolio' : '',
   env: {
     NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,

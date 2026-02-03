@@ -1,30 +1,30 @@
 # Chat App Deployment Guide
 
-## 🚀 Deployment Ready Features
+## Deployment Ready Features
 
-✅ **Google OAuth Authentication**
-✅ **GitHub OAuth Authentication** 
-✅ **Firebase Realtime Database**
-✅ **User Data Storage**
-✅ **Responsive Design**
-✅ **Theme Support**
-✅ **Production Ready**
+OK **Google OAuth Authentication**
+OK **GitHub OAuth Authentication**
+OK **Firebase Realtime Database**
+OK **User Data Storage**
+OK **Responsive Design**
+OK **Theme Support**
+OK **Production Ready**
 
-## 📋 Pre-Deployment Setup
+## Pre-Deployment Setup
 
 ### 1. Firebase Console Setup
 
-1. Go to [Firebase Console](https://console.firebase.google.com/)
+1. Go to Firebase Console
 2. Select your project: `portfolio-project-14a25`
 3. Navigate to **Authentication** > **Sign-in method**
-4. Enable **Google** and **GitHub** providers:
+4. Enable **Google** and **GitHub** providers
 
-#### Google OAuth Setup:
+#### Google OAuth Setup
 - Enable Google sign-in
 - Add your domain to authorized domains
 - Copy Web client ID (if needed)
 
-#### GitHub OAuth Setup:
+#### GitHub OAuth Setup
 - Enable GitHub sign-in
 - Go to GitHub > Settings > Developer settings > OAuth Apps
 - Create new OAuth App:
@@ -44,11 +44,9 @@ cp .env.example .env.local
 
 ### 3. Domain Configuration
 
-Update `next.config.js` if deploying to custom domain:
-- Remove or update `assetPrefix` and `basePath`
-- Add your domain to Firebase authorized domains
+Add your deployed domain to Firebase authorized domains.
 
-## 🌐 Deployment Options
+## Deployment Options
 
 ### Option 1: Vercel (Recommended)
 
@@ -57,12 +55,18 @@ Update `next.config.js` if deploying to custom domain:
 3. Add environment variables in Vercel dashboard
 4. Deploy automatically
 
-### Option 2: Netlify
+### Option 2: Netlify (Static Export)
 
-1. Build the project: `npm run build`
-2. Upload `out` folder to Netlify
-3. Configure environment variables
-4. Set up custom domain
+This project is configured for Netlify static export:
+- Build command: `npm run build`
+- Publish directory: `out`
+- Config file: `netlify.toml`
+
+Steps:
+1. Push the repo to GitHub
+2. Connect the repo in Netlify
+3. Add environment variables in Netlify
+4. Deploy
 
 ### Option 3: Firebase Hosting
 
@@ -74,7 +78,7 @@ npm run build
 firebase deploy
 ```
 
-## 🔧 Production Checklist
+## Production Checklist
 
 - [ ] Firebase Authentication providers enabled
 - [ ] OAuth apps configured (Google/GitHub)
@@ -85,7 +89,7 @@ firebase deploy
 - [ ] Error handling implemented
 - [ ] Performance optimized
 
-## 🛡️ Security Configuration
+## Security Configuration
 
 ### Firebase Database Rules
 
@@ -109,7 +113,7 @@ firebase deploy
 }
 ```
 
-## 📱 Features Implemented
+## Features Implemented
 
 ### Authentication
 - Google OAuth sign-in
@@ -132,7 +136,7 @@ firebase deploy
 - Provider information
 - Last login tracking
 
-## 🔍 Testing
+## Testing
 
 1. Test Google sign-in
 2. Test GitHub sign-in
@@ -142,7 +146,7 @@ firebase deploy
 6. Test responsive design
 7. Test theme switching
 
-## 🚀 Go Live
+## Go Live
 
 1. Complete Firebase setup
 2. Configure OAuth providers
