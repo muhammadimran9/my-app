@@ -1,6 +1,1 @@
-'use client';
-import ChatApp from '../../components/ChatApp';
-
-export default function Chat() {
-  return <ChatApp />;
-}
+'use client'; import ChatApp from '../../components/ChatApp'; export default function Chat() { return <ChatApp />; }

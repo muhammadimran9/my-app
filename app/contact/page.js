@@ -1,14 +1,1 @@
-"use client";
-
-import React from "react";
-import SocialMediaCard from "../../components/SocialMediaCard";
-
-const ContactPage = () => {
-  return (
-    <div className="min-h-screen bg-white dark:bg-neutral-900">
-      <SocialMediaCard />
-    </div>
-  );
-};
-
-export default ContactPage;
+"use client"; import React from "react"; import SocialMediaCard from "../../components/SocialMediaCard"; const ContactPage = () => { return ( <div className="min-h-screen bg-white dark:bg-neutral-900"> <SocialMediaCard /> </div> ); }; export default ContactPage;
